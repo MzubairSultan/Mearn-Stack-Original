@@ -6,16 +6,24 @@ const app = express()
 const pathdir=path.join(__dirname,'public')
 console.log(pathdir)
   app.use(express.static(pathdir))
-
+//Template engine setting
+  app.set("view engine","ejs")
+  console.log(app.get("view engine"))
 
 // console.log(app)
 app.get("/",(req,res)=>{
-   res.sendFile(`${pathdir}/index.html`)
-
+//    res.sendFile(`${pathdir}/index.html`)
+//    file sending method in normal way
+        res.render("index",{
+            title:"index"
+        })
 })
 
 app.get("/about",(req,res)=>{
-    res.sendFile(`${pathdir}/about.html`)
+    // res.sendFile(`${pathdir}/about.html`)
+    res.render("about",{
+        title:"about"
+    })
  })
 //  Download able functionality is added
  app.get("/download",(req,res)=>{
