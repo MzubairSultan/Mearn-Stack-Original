@@ -8,7 +8,23 @@ mongoose.connect("mongodb://127.0.0.1:27017/test").then(()=>{
 // how to make a schema of database
 
 const schema = new mongoose.Schema({
-    name:String,
+    
+        name:{
+            type:String
+        },
+        email:{
+            type:String
+        },
+        phone:{
+           type:Number
+        },
+        password:{
+            type:String
+        },
+        confpassword:{
+           type:String
+        }
+
 
 })
 // how to make a table 

@@ -67,6 +67,21 @@ app.delete("/delete/:id",async(req,res)=>{
       res.status(500).send(error)
    }
 })
+
+//  login functionality bnany ka triqa 
+
+ app.post("/login",async(req,res)=>{
+   
+  try {
+    const useremail=req.body.email;
+    const getemail=  await user.findOne({email:useremail})
+    res.send(getemail);
+    
+  } catch (error) {
+    res.status(500).send(error)
+  }
+
+})
 app.listen(4500,()=>{
     console.log("server is running on port 4500")
 })
